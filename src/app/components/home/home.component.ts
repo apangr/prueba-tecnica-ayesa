@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   filteredUsers: User[] = [];
   selectedUser: User | null = null;
   showAlert = false;
-  alertDeleteMessage = 'Are you sure you want to delete this user?';
+  alertDeleteMessage = 'Are you sure you want to delete the user [username] ?';
 
   /**
    * Constructor
@@ -57,6 +57,10 @@ export class HomeComponent implements OnInit {
   }
 
   deleteUser(user: User) {
+    this.alertDeleteMessage = this.alertDeleteMessage.replace(
+      '[username]',
+      user.name
+    );
     this.showAlert = true;
     this.selectedUser = user;
   }
