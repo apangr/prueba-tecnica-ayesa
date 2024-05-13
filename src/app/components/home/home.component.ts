@@ -22,6 +22,9 @@ export class HomeComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
   users: User[] = [];
   filteredUsers: User[] = [];
+  selectedUser: User | null = null;
+  showAlert = false;
+  alertDeleteMessage = 'Are you sure you want to delete this user?';
 
   /**
    * Constructor
@@ -37,7 +40,6 @@ export class HomeComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((data: User[] | null) => {
         if (data) this.users = this.filteredUsers = data;
-        console.log(this.users);
         // Mark for check
         this._changeDetectorRef.markForCheck();
       });
@@ -51,6 +53,18 @@ export class HomeComponent implements OnInit {
       );
     } else {
       this.filteredUsers = this.users;
+    }
+  }
+
+  deleteUser(user: User) {
+    this.showAlert = true;
+    this.selectedUser = user;
+  }
+
+  onDeleteConfirm() {
+    if (this.selectedUser) {
+      this._usersService.deleteUser(this.selectedUser);
+      this.showAlert = false;
     }
   }
 }

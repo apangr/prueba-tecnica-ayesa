@@ -21,9 +21,17 @@
       <td>{{ item.type }}</td>
       <td>
         <a [routerLink]="['/', item.id]">Ver</a><button>Editar</button
-        ><button>Borrar</button>
+        ><button (click)="deleteUser(item)">Borrar</button>
       </td>
     </tr>
     }
   </tbody>
 </table>
+
+<dialog [open]="showAlert">
+  <p>{{ alertDeleteMessage }}</p>
+  <form method="dialog">
+    <button (click)="showAlert = false">Cancel</button
+    ><button (click)="onDeleteConfirm()">OK</button>
+  </form>
+</dialog>

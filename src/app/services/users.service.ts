@@ -83,4 +83,9 @@ export class UsersService {
       birthdate: user.birthdate,
     });
   }
+
+  deleteUser(user: User) {
+    const index = users.indexOf(user);
+    users.splice(index, 1);
+  }
 }
