@@ -1,32 +1,38 @@
-<div class="actions-box">
-  <select (change)="filterByType($event)">
-    <option [value]="null">Select type</option>
-    <option [value]="'Plaintiffs'">Plaintiffs</option>
-    <option [value]="'Employee'">Employee</option>
-  </select>
-  <button [routerLink]="['/', 'create-user']">Agregar</button>
+<div class="container">
+  <div class="actions-box">
+    <select (change)="filterByType($event)">
+      <option [value]="null">Select type</option>
+      <option [value]="'Plaintiffs'">Plaintiffs</option>
+      <option [value]="'Employee'">Employee</option>
+    </select>
+    <button [routerLink]="['/', 'create-user']">Agregar</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>NIF/Passport</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(item of filteredUsers; track item.id){
+      <tr>
+        <td>{{ item.nifPassport }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.surname }}</td>
+        <td>{{ item.type }}</td>
+        <td class="actions-row">
+          <a [routerLink]="['/', item.id]">Ver</a><button>Editar</button
+          ><button (click)="deleteUser(item)">Borrar</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
 </div>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for(item of filteredUsers; track item.id){
-    <tr>
-      <td>{{ item.name }}</td>
-      <td>{{ item.type }}</td>
-      <td>
-        <a [routerLink]="['/', item.id]">Ver</a><button>Editar</button
-        ><button (click)="deleteUser(item)">Borrar</button>
-      </td>
-    </tr>
-    }
-  </tbody>
-</table>
 
 <dialog [open]="showAlert">
   <p>{{ alertDeleteMessage }}</p>
