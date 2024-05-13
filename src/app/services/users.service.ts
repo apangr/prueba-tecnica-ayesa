@@ -63,4 +63,24 @@ export class UsersService {
   get user$() {
     return this._user.asObservable();
   }
+
+  createUser(user: any) {
+    users.push({
+      id: (users.length + 1).toString(),
+      name: user.name,
+      surname: user.surname,
+      secondSurname: user.secondSurname,
+      nifPassport: user.nifPassport,
+      gender: user.gender,
+      type: user.companyName ? 'Employee' : 'Plaintiffs',
+      address: {
+        city: user.city,
+        door: user.door,
+        number: user.number,
+        postalCode: user.postalCode,
+        street: user.street,
+      },
+      birthdate: user.birthdate,
+    });
+  }
 }

@@ -1,0 +1,67 @@
+<form [formGroup]="newUserForm">
+  <div>
+    <input formControlName="nifPassport" type="text" required />
+    @if(nifPassport?.hasError('required') && nifPassport?.touched){
+    <span class="field-error">This field is required</span>
+    }
+  </div>
+  <div>
+    <input formControlName="name" type="text" required />
+    @if(name?.hasError('required') && name?.touched){
+    <span class="field-error">This field is required</span>
+    }
+  </div>
+  <div>
+    <input formControlName="surname" type="text" required />
+    @if(surname?.hasError('required') && surname?.touched){
+    <span class="field-error">This field is required</span>
+    }
+  </div>
+  <div>
+    <input formControlName="secondSurname" type="text" />
+  </div>
+  <div>
+    <input formControlName="gender" type="text" />
+  </div>
+  <div>
+    <input formControlName="birthdate" type="date" />
+  </div>
+  <div>
+    <input formControlName="street" type="text" />
+  </div>
+  <div>
+    <input formControlName="number" type="text" />
+  </div>
+  <div>
+    <input formControlName="door" type="text" />
+  </div>
+  <div>
+    <input formControlName="postalCode" type="text" />
+  </div>
+  <div>
+    <input formControlName="city" type="text" />
+  </div>
+  <span>Studies</span>
+  <div>
+    <input formControlName="institutionName" type="text" />
+  </div>
+  <div>
+    <input formControlName="title" type="text" />
+  </div>
+  <div>
+    <input formControlName="studiesEndDate" type="date" />
+  </div>
+  <span>Work experience</span>
+  <div>
+    <input formControlName="companyName" type="text" />
+  </div>
+  <div>
+    <input formControlName="job" type="text" />
+  </div>
+  <div>
+    <input formControlName="date" type="date" />
+  </div>
+  <button [disabled]="newUserForm.invalid" (click)="createUser()">
+    Create
+  </button>
+</form>
