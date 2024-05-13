@@ -44,6 +44,13 @@ export class HomeComponent implements OnInit {
   }
 
   filterByType(event: any) {
-    console.log(event.value);
+    const targetType = event.target.value;
+    if (targetType && targetType !== 'null') {
+      this.filteredUsers = this.users.filter(
+        (user) => user.type === targetType
+      );
+    } else {
+      this.filteredUsers = this.users;
+    }
   }
 }

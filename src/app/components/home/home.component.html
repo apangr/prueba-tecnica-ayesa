@@ -1,8 +1,8 @@
 <div class="actions-box">
-  <select>
-    <option value="null">Select type</option>
-    <option value="Plaintiffs">Plaintiffs</option>
-    <option value="Employee">Employee</option>
+  <select (change)="filterByType($event)">
+    <option [value]="null">Select type</option>
+    <option [value]="'Plaintiffs'">Plaintiffs</option>
+    <option [value]="'Employee'">Employee</option>
   </select>
   <button>Agregar</button>
 </div>
@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    @for(item of users; track item.id){
+    @for(item of filteredUsers; track item.id){
     <tr>
       <td>{{ item.name }}</td>
       <td>{{ item.type }}</td>
