@@ -8,11 +8,13 @@ import {
 import { User } from '../../services/users.types';
 import { UsersService } from '../../services/users.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -39,5 +41,9 @@ export class HomeComponent implements OnInit {
         // Mark for check
         this._changeDetectorRef.markForCheck();
       });
+  }
+
+  filterByType(event: any) {
+    console.log(event.value);
   }
 }

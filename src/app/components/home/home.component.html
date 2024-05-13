@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="actions-box">
+  <select>
+    <option value="null">Select type</option>
+    <option value="Plaintiffs">Plaintiffs</option>
+    <option value="Employee">Employee</option>
+  </select>
+  <button>Agregar</button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(item of users; track item.id){
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>{{ item.type }}</td>
+      <td>
+        <a [routerLink]="['/', item.id]">Ver</a><button>Editar</button
+        ><button>Borrar</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

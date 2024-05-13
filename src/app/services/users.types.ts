@@ -1,5 +1,5 @@
 export interface User {
-  id: number;
+  id: string;
   nifPassport: string;
   name: string;
   surname: string;

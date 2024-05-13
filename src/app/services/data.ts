@@ -2,7 +2,7 @@ import { User } from './users.types';
 
 export const users: User[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Cristian',
     surname: 'Gonzalez',
     secondSurname: 'Perez',
@@ -11,7 +11,7 @@ export const users: User[] = [
     type: 'Plaintiffs',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Adrian',
     surname: 'Perez',
     secondSurname: 'Perez',
@@ -20,7 +20,7 @@ export const users: User[] = [
     type: 'Employee',
   },
   {
-    id: 3,
+    id: '3',
     name: 'Laura',
     surname: 'Aguila',
     secondSurname: 'Perez',
@@ -29,7 +29,7 @@ export const users: User[] = [
     type: 'Employee',
   },
   {
-    id: 4,
+    id: '4',
     name: 'Maria',
     surname: 'Lopez',
     secondSurname: 'Perez',
@@ -38,7 +38,7 @@ export const users: User[] = [
     type: 'Employee',
   },
   {
-    id: 5,
+    id: '5',
     name: 'Alex',
     surname: 'Gutierrez',
     secondSurname: 'Rojas',
